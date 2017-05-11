@@ -5,5 +5,3 @@ RUN apk add -U --no-cache \
     && rm -rf /var/cache/apk/*
 
 COPY semantic-version.sh /semantic-version.sh
-
-CMD [ "sh", "-c", "semantic-version.sh" ]
