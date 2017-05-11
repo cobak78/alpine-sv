@@ -75,5 +75,3 @@ if [[ -z ${GIT_TAG} ]]; then
         echo GIT_TAG=`echo ${GIT_TAG}` >> $LOGFILE
     fi
 fi
-
-echo "Actual GIT tag: ${GIT_MAX_TAG}, New GIT tag: ${GIT_TAG}, is new tag ${NEW_TAG}"
