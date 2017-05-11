@@ -4,4 +4,6 @@ RUN apk add -U --no-cache \
     git \
     && rm -rf /var/cache/apk/*
 
-COPY semantic-version.sh /semantic-version.sh
+RUN mkdir /app
+
+COPY semantic-version.sh /app/semantic-version.sh

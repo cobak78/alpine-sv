@@ -72,6 +72,5 @@ if [[ -z ${GIT_TAG} ]]; then
     
     if [ "${GIT_TAG}" != "${GIT_MAX_TAG}" ]; then
         NEW_TAG=1
-        echo GIT_TAG=`echo ${GIT_TAG}` >> $LOGFILE
     fi
 fi
