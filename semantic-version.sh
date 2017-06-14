@@ -54,23 +54,32 @@ tagAndPushNewRelease() {
 }
 
 doNewRelease() {
-    tagAndPushNewRelease "${1}" "$(echo -e "Release ${1} created via Jenkins from build ${BUILD_DISPLAY_NAME}\n${BUILD_URL}")"
+    tagAndPushNewRelease "${1}" "$(echo -e "Release ${1} created via cobak/alpine-sv image")"
 }
 
 pruneLocalTags() {
     git tag -l | xargs git tag -d && git fetch --tags
 }
 
+cloneRepo() {
+    git clone ${GIT_URL} /app
+    cd /app
+    git checkout ${GIT_BRANCH}
+}
+
+
+cloneRepo
 pruneLocalTags
 
 GIT_TAG=$(getCommitReleaseNum ${GIT_COMMIT})
-NEW_TAG=0
 
 if [[ -z ${GIT_TAG} ]]; then
     GIT_MAX_TAG=$(getMaxReleaseNum)
     GIT_TAG=$(getNextReleaseNum "${GIT_MAX_TAG}")
-    
+  
     if [ "${GIT_TAG}" != "${GIT_MAX_TAG}" ]; then
-        NEW_TAG=1
+        doNewRelease "${GIT_TAG}"
     fi
 fi
+
+echo "Actual GIT tag: ${GIT_MAX_TAG}, New GIT tag: ${GIT_TAG}, is new tag"
