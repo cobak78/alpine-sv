@@ -78,8 +78,7 @@ if [[ -z ${GIT_TAG} ]]; then
     GIT_TAG=$(getNextReleaseNum "${GIT_MAX_TAG}")
   
     if [ "${GIT_TAG}" != "${GIT_MAX_TAG}" ]; then
+        echo GIT_TAG=`echo ${GIT_TAG}`
         doNewRelease "${GIT_TAG}"
     fi
 fi
-
-echo "Actual GIT tag: ${GIT_MAX_TAG}, New GIT tag: ${GIT_TAG}, is new tag"
