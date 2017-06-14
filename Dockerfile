@@ -9,4 +9,6 @@ RUN mkdir /app
 
 COPY semantic-version.sh /app/semantic-version.sh
 
-CMD ["/bin/bash"]
+RUN chmod +x /app/semantic-version.sh
+
+CMD ["sh", "/app/semantic-version.sh"]

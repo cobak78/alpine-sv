@@ -44,10 +44,13 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/jaime.merino/dev/alpine-sv"
+		"/Users/jaime/dev/alpine-sv"
 	],
 	"file_history":
 	[
+		"/Users/jaime/dev/alpine-sv/Dockerfile",
+		"/Users/jaime/dev/alpine-sv/.gitignore",
+		"/Users/jaime/dev/alpine-sv/alpine-sv.sublime-project",
 		"/Users/jaime.merino/dev/php/7.0-dev/Dockerfile",
 		"/Users/jaime.merino/dev/php/README.md",
 		"/Users/jaime.merino/dev/rancher-env/inf/ha-proxy/haproxy.cfg",
