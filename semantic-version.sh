@@ -10,19 +10,19 @@ else
     exit 1
 fi
 
-if [[ -z ${HOTFIX}]]; then
+if [[ -z ${HOTFIX} ]]; then
     HOTFIX_BRANCH="origin/hotfix/"
 else
     HOTFIX_BRANCH=${HOTFIX}
 fi
 
-if [[ -z ${MINOR}]]; then
+if [[ -z ${MINOR} ]]; then
     MINOR_BRANCH="origin/develop"
 else
     MINOR_BRANCH=${MINOR}
 fi
 
-if [[ -z ${MAJOR}]]; then
+if [[ -z ${MAJOR} ]]; then
     MAJOR_BRANCH="origin/master"
 else
     MAJOR_BRANCH=${MAJOR}
