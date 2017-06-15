@@ -67,8 +67,10 @@ cloneRepo() {
     git checkout ${GIT_BRANCH}
 }
 
+if [ ! -d "/app" ]; then
+    cloneRepo
+fi
 
-cloneRepo
 pruneLocalTags
 
 GIT_TAG=$(getCommitReleaseNum ${GIT_COMMIT})

@@ -21,10 +21,13 @@
 			}
 		},
 		{
+			"contents": "### Naming versioning on alpine\n\n# Usage\n\n```bash\n$ docker build . -t alpine-sv\n$ docker run -e GIT_BRANCH=origin/develop -e GIT_COMMIT=5209fb41 -e GIT_URL=git@gitlab.services:crawling/gocrawl-demo.git -v ~/.ssh:/root/.ssh -ti --rm cobak/alpine-sv ./semantic-version.sh\n```\n\n\tGIT_BRANCH: use origin/develop origin/master and origin/hotfix/* \n\tGIT_COMMIT: your commit hash\n\tGIT_URL: your repository url\n\n*all this parameters can be extract from jenkins or gitlab variables*\n\n- bind a volume with an .ssh directory with the right credentials to connect to the repo you set.\n- there are others alternatives to this approach, like docker-secrets, .env, etc.\n\n",
 			"file": "README.md",
+			"file_size": 644,
+			"file_write_time": 131419186550000000,
 			"settings":
 			{
-				"buffer_size": 644,
+				"buffer_size": 655,
 				"encoding": "UTF-8",
 				"line_ending": "Unix",
 				"name": "### Naming versioning on alpine"
@@ -34,7 +37,7 @@
 			"file": "semantic-version.sh",
 			"settings":
 			{
-				"buffer_size": 1946,
+				"buffer_size": 1909,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -171,15 +174,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 644,
+						"buffer_size": 655,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								643,
-								643
+								82,
+								269
 							]
 						],
 						"settings":
@@ -200,15 +203,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1946,
+						"buffer_size": 1909,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1550,
-								1550
+								1243,
+								1243
 							]
 						],
 						"settings":
@@ -218,7 +221,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 240.0,
+						"translation.y": 532.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
