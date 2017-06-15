@@ -8,8 +8,7 @@ RUN apk update && apk add -U --no-cache \
 
 RUN  git config --global user.email "trovit-gh@trovit.com" \
 	&& git config --global user.name "Trovit Deployer" \
-	&& git config --global http.sslVerify false \
-	&& git config --global --unset credential.helper	
+	&& git config --global http.sslVerify false 
 
 COPY semantic-version.sh semantic-version.sh
 
