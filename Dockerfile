@@ -6,7 +6,9 @@ RUN apk update && apk add -U --no-cache \
     openssh \
     && rm -rf /var/cache/apk/*
 
-RUN  git config --global user.email "trovit-gh@trovit.com" && git config --global user.name "Trovit Deployer"	
+RUN  git config --global user.email "trovit-gh@trovit.com" \
+	&& git config --global user.name "Trovit Deployer" \
+	&& git config --global http.sslVerify false	
 
 COPY semantic-version.sh semantic-version.sh
 
