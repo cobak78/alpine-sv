@@ -10,6 +10,24 @@ else
     exit 1
 fi
 
+if [[ -z ${HOTFIX}]]; then
+    HOTFIX_BRANCH="origin/hotfix/"
+else
+    HOTFIX_BRANCH=${HOTFIX}
+fi
+
+if [[ -z ${MINOR}]]; then
+    MINOR_BRANCH="origin/develop"
+else
+    MINOR_BRANCH=${MINOR}
+fi
+
+if [[ -z ${MAJOR}]]; then
+    MAJOR_BRANCH="origin/master"
+else
+    MAJOR_BRANCH=${MAJOR}
+fi
+
 altAssignment() {
     if [[ -z ${1} ]]; then
         echo ${2}
@@ -27,12 +45,12 @@ getNextReleaseNum() {
     patch=$(altAssignment "${BASH_REMATCH[4]}" "0")
     suffix=$(altAssignment "${BASH_REMATCH[5]}" "")
 
-    if [[ "${GIT_BRANCH}" == "origin/hotfix/"* ]]; then
+    if [[ "${GIT_BRANCH}" == "${HOTFIX}"* ]]; then
         patch=$((${patch} + 1))
-    elif [ "${GIT_BRANCH}" = "origin/develop" ]; then
+    elif [ "${GIT_BRANCH}" = "${MINOR}" ]; then
         patch='0'
         minor=$((${minor} + 1))
-    elif [ "${GIT_BRANCH}" = "origin/master" ]; then
+    elif [ "${GIT_BRANCH}" = "${MAJOR}" ]; then
         patch='0'
         minor='0'
         major=$((${major} + 1))
