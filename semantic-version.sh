@@ -57,14 +57,10 @@ doNewRelease() {
     tagAndPushNewRelease "${1}" "$(echo -e "Release ${1} created via cobak/alpine-sv image")"
 }
 
-pruneLocalTags() {
-    git tag -l | xargs git tag -d && git fetch --tags
-}
-
 cloneRepo() {
-    git clone ${GIT_URL} /app
+    git clone -q ${GIT_URL} /app
     cd /app
-    git checkout ${GIT_BRANCH}
+    git checkout -q ${GIT_BRANCH}
 }
 
 if [ ! -d "/app" ]; then
@@ -72,8 +68,6 @@ if [ ! -d "/app" ]; then
 else
     cd /app
 fi
-
-pruneLocalTags
 
 GIT_TAG=$(getCommitReleaseNum ${GIT_COMMIT})
 
