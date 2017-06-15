@@ -69,6 +69,8 @@ cloneRepo() {
 
 if [ ! -d "/app" ]; then
     cloneRepo
+else
+    cd /app
 fi
 
 pruneLocalTags
