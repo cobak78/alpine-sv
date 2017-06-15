@@ -74,9 +74,9 @@ GIT_TAG=$(getCommitReleaseNum ${GIT_COMMIT})
 if [[ -z ${GIT_TAG} ]]; then
     GIT_MAX_TAG=$(getMaxReleaseNum)
     GIT_TAG=$(getNextReleaseNum "${GIT_MAX_TAG}")
-  
+
     if [ "${GIT_TAG}" != "${GIT_MAX_TAG}" ]; then
-        echo GIT_TAG=`echo ${GIT_TAG}`
         doNewRelease "${GIT_TAG}"
+        echo "GIT_TAG=${GIT_TAG}"
     fi
 fi
