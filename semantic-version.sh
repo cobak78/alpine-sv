@@ -45,12 +45,12 @@ getNextReleaseNum() {
     patch=$(altAssignment "${BASH_REMATCH[4]}" "0")
     suffix=$(altAssignment "${BASH_REMATCH[5]}" "")
 
-    if [[ "${GIT_BRANCH}" == "${HOTFIX}"* ]]; then
+    if [[ "${GIT_BRANCH}" = "${HOTFIX_BRANCH}"* ]]; then
         patch=$((${patch} + 1))
-    elif [ "${GIT_BRANCH}" = "${MINOR}" ]; then
+    elif [ "${GIT_BRANCH}" = "${MINOR_BRANCH}" ]; then
         patch='0'
         minor=$((${minor} + 1))
-    elif [ "${GIT_BRANCH}" = "${MAJOR}" ]; then
+    elif [ "${GIT_BRANCH}" = "${MAJOR_BRANCH}" ]; then
         patch='0'
         minor='0'
         major=$((${major} + 1))
@@ -98,3 +98,5 @@ if [[ -z ${GIT_TAG} ]]; then
         echo "GIT_TAG=${GIT_TAG}"
     fi
 fi
+
+
